@@ -182,7 +182,7 @@ fun WebElement.elementsByClass(className: String, init: List<WebElement>.() -> U
 }
 
 /*
-* Web driver wait element by class
+* Web driver wait element
 * */
 
 fun WebDriver.waitElement(by: By, timeout: Long, init: WebElement.() -> Unit = {}): WebElement {
@@ -190,6 +190,10 @@ fun WebDriver.waitElement(by: By, timeout: Long, init: WebElement.() -> Unit = {
     element.init()
     return element
 }
+
+/*
+* Web driver wait element by class
+* */
 
 fun WebDriver.waitElementByClass(className: String, timeout: Long, init: WebElement.() -> Unit = {}): WebElement {
     val element = WebDriverWait(this, timeout).until(ExpectedConditions.visibilityOfElementLocated(By.className(className)))
