@@ -196,3 +196,25 @@ fun WebDriver.waitElementByClass(className: String, timeout: Long, init: WebElem
     element.init()
     return element
 }
+
+/*
+* Web driver wait element by class is invisible
+* */
+
+fun WebDriver.waitElementByClassInvisible(className: String, timeout: Long, init: WebElement.() -> Unit = {}): Boolean {
+    return WebDriverWait(this, timeout).until(ExpectedConditions.invisibilityOfElementLocated(By.className(className)))
+}
+
+/*
+* Exists by class name
+* */
+
+fun WebDriver.existsElementByClass(className: String): Boolean {
+    val elements = findElements(By.className(className))
+    return elements.isNotEmpty()
+}
+
+fun WebElement.existsElementByClass(className: String): Boolean {
+    val elements = findElements(By.className(className))
+    return elements.isNotEmpty()
+}
