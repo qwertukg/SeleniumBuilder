@@ -30,12 +30,12 @@ driver(ChromeDriver()) {
     elementByClassOrNull("possible-button") {
         click()
 
-        waitElementByClass("dynamic-popup", 10) {
+        waitElementVisibilityByClass("dynamic-popup", 10) {
             sendKeys("Kotlin is awesome")
             submit()
         }
 
-        waitElementByClassInvisible("dynamic-popup", 10)
+        waitElementInvisibilityByClass("dynamic-popup", 10)
     }
 }
 ```
