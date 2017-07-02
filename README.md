@@ -51,7 +51,11 @@ chromeDriver {
 
 `chromeDriver {}`
 
+`chromeDriver(pathToDriver: String) {}`
+
 `firefoxDriver {}`
+
+`firefoxDriver(pathToDriver: String) {}`
 
 #### `WebDriver` and `WebElement` element builders
 
