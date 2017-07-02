@@ -4,15 +4,11 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class WebDriverKtTest {
-    init {
-        System.setProperty("webdriver.chrome.driver", "d:/chromedriver.exe")
-    }
-
     @Test
     fun `test wait function on google`() {
         var result: String = ""
 
-        chromeDriver {
+        chromeDriver("d:/chromedriver.exe") {
             get("http://google.com")
 
             elementById("lst-ib") {
