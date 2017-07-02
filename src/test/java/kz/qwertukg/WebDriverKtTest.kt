@@ -5,7 +5,7 @@ import org.junit.Assert.*
 
 class WebDriverKtTest {
     @Test
-    fun `test wait function on google`() {
+    fun `test chromeDriver, elementById, wait, elementVisibilityById, elementVisibilityBySelector functions on google`() {
         var result: String = ""
 
         chromeDriver("d:/chromedriver.exe") {
