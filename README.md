@@ -43,3 +43,101 @@ chromeDriver {
     }
 }
 ```
+## Total function list
+
+#### Driver builders
+
+`driver(driver: WebDriver) {}` 
+
+`chromeDriver {}`
+
+`firefoxDriver {}`
+
+#### `WebDriver` and `WebElement` element builders
+
+`element(by: By) {}`
+
+`elementById(id: String) {}`
+
+`elementByClass(className: String) {}`
+
+`elementByName(name: String) {}`
+
+`elementBySelector(selector: String) {}`
+
+`elementByXpath(selector: String) {}`
+
+#### `WebDriver` and `WebElement` element or `null` builders
+
+`elementOrNull(by: By) {}`
+
+`elementByIdOrNull(id: String) {}`
+
+`elementByClassOrNull(className: String) {}`
+
+`elementByNameOrNull(name: String) {}`
+
+`elementBySelectorOrNull(selector: String) {}`
+
+`elementByXpathOrNull(selector: String) {}`
+
+#### `WebDriver` and `WebElement` element list builders
+
+`elements(by: By) {}`
+
+`elementsById(id: String) {}`
+
+`elementsByClass(className: String) {}`
+
+`elementsByName(name: String) {}`
+
+`elementsBySelector(selector: String) {}`
+
+`elementsByXpath(selector: String) {}`
+
+#### `WebDriver` and `WebElement` element exists functions
+
+`elementExists(by: By): Boolean`
+
+`elementByIdExists(id: String): Boolean`
+
+`elementByClassExists(className: String): Boolean`
+
+`elementByNameExists(name: String): Boolean`
+
+`elementBySelectorExists(selector: String): Boolean`
+
+`elementByXpathExists(selector: String): Boolean`
+
+#### `WebDriver` `WebDriverWait` builder
+
+`wait(timeout: Long) {}`
+
+#### `WebDriverWait` element visibility builders
+
+`elementVisibility(by: By) {}`
+
+`elementVisibilityById(id: String) {}`
+
+`elementVisibilityByClass(className: String) {}`
+
+`elementVisibilityByName(name: String) {}`
+
+`elementVisibilityBySelector(selector: String) {}`
+
+`elementVisibilityByXpath(xpath: String) {}`
+
+#### `WebDriverWait` element invisibility functions
+
+`elementInvisibility(by: By): Boolean`
+
+`elementInvisibilityById(id: String): Boolean`
+
+`elementInvisibilityByClass(className: String): Boolean`
+
+`elementInvisibilityByName(name: String): Boolean`
+
+`elementInvisibilityBySelector(selector: String): Boolean`
+
+`elementInvisibilityByXpath(xpath: String): Boolean`
+
