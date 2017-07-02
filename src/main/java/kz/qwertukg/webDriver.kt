@@ -39,8 +39,8 @@ fun chromeDriver(init: WebDriver.() -> Unit = {}): ChromeDriver {
 /*
 * Web Driver Chrome with path to driver
 * */
-fun chromeDriver(path: String, init: WebDriver.() -> Unit = {}): ChromeDriver {
-    System.setProperty("webdriver.chrome.driver", path)
+fun chromeDriver(pathToDriver: String, init: WebDriver.() -> Unit = {}): ChromeDriver {
+    System.setProperty("webdriver.chrome.driver", pathToDriver)
     val driver = ChromeDriver()
 
     try {
@@ -68,8 +68,8 @@ fun firefoxDriver(init: WebDriver.() -> Unit = {}): FirefoxDriver {
 /*
 * Web Driver FireFox with path to driver
 * */
-fun firefoxDriver(path: String, init: WebDriver.() -> Unit = {}): FirefoxDriver {
-    System.setProperty("webdriver.chrome.driver", path)
+fun firefoxDriver(pathToDriver: String, init: WebDriver.() -> Unit = {}): FirefoxDriver {
+    System.setProperty("webdriver.chrome.driver", pathToDriver)
     val driver = FirefoxDriver()
 
     try {
