@@ -1,5 +1,5 @@
 # SeleniumBuilder
-DSL for Selenium 2.0. Provide a possibility to write tests in Kotlin builder style
+DSL for Selenium 2.0. Provide a possibility to write tests in [Kotlin type-safe builders](https://kotlinlang.org/docs/reference/type-safe-builders.html#a-type-safe-builder-example) style
 ```kotlin
 driver(ChromeDriver()) { 
     get("http://cool-website.com")
