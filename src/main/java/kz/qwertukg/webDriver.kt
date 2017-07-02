@@ -69,7 +69,7 @@ fun firefoxDriver(init: WebDriver.() -> Unit = {}): FirefoxDriver {
 * Web Driver FireFox with path to driver
 * */
 fun firefoxDriver(pathToDriver: String, init: WebDriver.() -> Unit = {}): FirefoxDriver {
-    System.setProperty("webdriver.chrome.driver", pathToDriver)
+    System.setProperty("webdriver.firefox.driver", pathToDriver)
     val driver = FirefoxDriver()
 
     try {
