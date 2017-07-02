@@ -1,7 +1,7 @@
 # SeleniumBuilder
 DSL for Selenium 2.0. Provide a possibility to write tests in Kotlin builder style
 ```kotlin
-chromeDriver { 
+driver(ChromeDriver()) { 
     get("http://cool-website.com")
     
     elementByClass("login") {
@@ -17,26 +17,29 @@ chromeDriver {
         sendKeys("kotlin")
     }
     
-    
-    waitElementVisibilityByClass("result-item", 10) {
-        item.salary = elementOrNull(By.className("salary"))
+    wait(10) {
+        elementVisibilityById("result-item") {
+            item.salary = elementByClassOrNull("salary")?.text
+        }
     }
 }
 ```
 Nested methods will not invoked if element not found
 ```kotlin
-driver(ChromeDriver()) {
+chromeDriver {
     get("http://cool-website.com")
 
     elementByClassOrNull("possible-button") {
         click()
-
-        waitElementVisibilityByClass("dynamic-popup", 10) {
-            sendKeys("Kotlin is awesome")
-            submit()
+        
+        wait(10) {
+            elementVisibilityByClass("dynamic-popup") {
+                sendKeys("Kotlin is awesome")
+                submit()
+            }
+            
+            elementInvisibilityByClass("dynamic-popup") 
         }
-
-        waitElementInvisibilityByClass("dynamic-popup", 10)
     }
 }
 ```
