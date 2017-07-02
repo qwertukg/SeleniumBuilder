@@ -44,6 +44,15 @@ fun WebDriverWait.elementVisibilityByClass(className: String, init: WebElement.(
 }
 
 /*
+* Web driver wait element by name is visible
+* */
+fun WebDriverWait.elementVisibilityByName(name: String, init: WebElement.() -> Unit = {}): WebElement {
+    val element = until(ExpectedConditions.visibilityOfElementLocated(By.name(name)))
+    element.init()
+    return element
+}
+
+/*
 * Web driver wait element by css selector is visible
 * */
 fun WebDriverWait.elementVisibilityBySelector(selector: String, init: WebElement.() -> Unit = {}): WebElement {
@@ -84,6 +93,13 @@ fun WebDriverWait.elementInvisibilityById(id: String): Boolean {
 * */
 fun WebDriverWait.elementInvisibilityByClass(className: String): Boolean {
     return until(ExpectedConditions.invisibilityOfElementLocated(By.className(className)))
+}
+
+/*
+* Web driver wait element by name is invisible
+* */
+fun WebDriverWait.elementInvisibilityByName(name: String): Boolean {
+    return until(ExpectedConditions.invisibilityOfElementLocated(By.name(name)))
 }
 
 /*
