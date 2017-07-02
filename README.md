@@ -17,7 +17,8 @@ chromeDriver {
         sendKeys("kotlin")
     }
     
-    waitElementByClass("result-item", 10) {
+    
+    waitElementVisibilityByClass("result-item", 10) {
         item.salary = elementOrNull(By.className("salary"))
     }
 }
