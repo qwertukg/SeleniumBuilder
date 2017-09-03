@@ -13,10 +13,9 @@ import org.openqa.selenium.firefox.FirefoxDriver
 /*
 * Web Driver
 * */
-fun driver(driver: WebDriver, init: WebDriver.() -> Unit = {}): WebDriver {
+inline fun driver(driver: WebDriver, init: WebDriver.() -> Unit) {
     try {
         driver.init()
-        return driver
     } finally {
         driver.close()
     }
@@ -25,12 +24,11 @@ fun driver(driver: WebDriver, init: WebDriver.() -> Unit = {}): WebDriver {
 /*
 * Web Driver Chrome
 * */
-fun chromeDriver(init: WebDriver.() -> Unit = {}): ChromeDriver {
+inline fun chromeDriver(init: WebDriver.() -> Unit) {
     val driver = ChromeDriver()
 
     try {
         driver.init()
-        return driver
     } finally {
         driver.close()
     }
@@ -39,13 +37,12 @@ fun chromeDriver(init: WebDriver.() -> Unit = {}): ChromeDriver {
 /*
 * Web Driver Chrome with path to driver
 * */
-fun chromeDriver(pathToDriver: String, init: WebDriver.() -> Unit = {}): ChromeDriver {
+inline fun chromeDriver(pathToDriver: String, init: WebDriver.() -> Unit) {
     System.setProperty("webdriver.chrome.driver", pathToDriver)
     val driver = ChromeDriver()
 
     try {
         driver.init()
-        return driver
     } finally {
         driver.close()
     }
@@ -54,12 +51,11 @@ fun chromeDriver(pathToDriver: String, init: WebDriver.() -> Unit = {}): ChromeD
 /*
 * Web Driver FireFox
 * */
-fun firefoxDriver(init: WebDriver.() -> Unit = {}): FirefoxDriver {
+inline fun firefoxDriver(init: WebDriver.() -> Unit) {
     val driver = FirefoxDriver()
 
     try {
         driver.init()
-        return driver
     } finally {
         driver.close()
     }
@@ -68,13 +64,12 @@ fun firefoxDriver(init: WebDriver.() -> Unit = {}): FirefoxDriver {
 /*
 * Web Driver FireFox with path to driver
 * */
-fun firefoxDriver(pathToDriver: String, init: WebDriver.() -> Unit = {}): FirefoxDriver {
+inline fun firefoxDriver(pathToDriver: String, init: WebDriver.() -> Unit) {
     System.setProperty("webdriver.firefox.driver", pathToDriver)
     val driver = FirefoxDriver()
 
     try {
         driver.init()
-        return driver
     } finally {
         driver.close()
     }

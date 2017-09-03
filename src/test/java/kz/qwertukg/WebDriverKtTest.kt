@@ -6,9 +6,9 @@ import org.junit.Assert.*
 class WebDriverKtTest {
     @Test
     fun `test chromeDriver, elementById, wait, elementVisibilityById, elementVisibilityBySelector functions on google`() {
-        var result: String = ""
+        var result = ""
 
-        chromeDriver("d:/chromedriver.exe") {
+        chromeDriver("c:/chromedriver.exe") {
             get("http://google.com")
 
             elementById("lst-ib") {

@@ -1,10 +1,7 @@
 package kz.qwertukg
 
-import org.openqa.selenium.By
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
-import org.openqa.selenium.support.ui.WebDriverWait
-import org.openqa.selenium.support.ui.ExpectedConditions
+import org.openqa.selenium.*
+import org.openqa.selenium.support.ui.*
 
 /**
 * Selenium Kotlin Builder
@@ -19,55 +16,43 @@ import org.openqa.selenium.support.ui.ExpectedConditions
 /*
 * Web driver wait element is visible
 * */
-fun WebDriverWait.elementVisibility(by: By, init: WebElement.() -> Unit = {}): WebElement {
-    val element = until(ExpectedConditions.visibilityOfElementLocated(by))
-    element.init()
-    return element
+inline fun WebDriverWait.elementVisibility(by: By, init: WebElement.() -> Unit) {
+    until(ExpectedConditions.visibilityOfElementLocated(by)).init()
 }
 
 /*
 * Web driver wait element by id is visible
 * */
-fun WebDriverWait.elementVisibilityById(id: String, init: WebElement.() -> Unit = {}): WebElement {
-    val element = until(ExpectedConditions.visibilityOfElementLocated(By.id(id)))
-    element.init()
-    return element
+inline fun WebDriverWait.elementVisibilityById(id: String, init: WebElement.() -> Unit) {
+    until(ExpectedConditions.visibilityOfElementLocated(By.id(id))).init()
 }
 
 /*
 * Web driver wait element by class is visible
 * */
-fun WebDriverWait.elementVisibilityByClass(className: String, init: WebElement.() -> Unit = {}): WebElement {
-    val element = until(ExpectedConditions.visibilityOfElementLocated(By.className(className)))
-    element.init()
-    return element
+fun WebDriverWait.elementVisibilityByClass(className: String, init: WebElement.() -> Unit) {
+    until(ExpectedConditions.visibilityOfElementLocated(By.className(className))).init()
 }
 
 /*
 * Web driver wait element by name is visible
 * */
-fun WebDriverWait.elementVisibilityByName(name: String, init: WebElement.() -> Unit = {}): WebElement {
-    val element = until(ExpectedConditions.visibilityOfElementLocated(By.name(name)))
-    element.init()
-    return element
+inline fun WebDriverWait.elementVisibilityByName(name: String, init: WebElement.() -> Unit) {
+    until(ExpectedConditions.visibilityOfElementLocated(By.name(name))).init()
 }
 
 /*
 * Web driver wait element by css selector is visible
 * */
-fun WebDriverWait.elementVisibilityBySelector(selector: String, init: WebElement.() -> Unit = {}): WebElement {
-    val element = until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(selector)))
-    element.init()
-    return element
+inline fun WebDriverWait.elementVisibilityBySelector(selector: String, init: WebElement.() -> Unit) {
+    until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(selector))).init()
 }
 
 /*
 * Web driver wait element by css selector is visible
 * */
-fun WebDriverWait.elementVisibilityByXpath(xpath: String, init: WebElement.() -> Unit = {}): WebElement {
-    val element = until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)))
-    element.init()
-    return element
+inline fun WebDriverWait.elementVisibilityByXpath(xpath: String, init: WebElement.() -> Unit) {
+    until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).init()
 }
 
 /*
@@ -77,41 +62,29 @@ fun WebDriverWait.elementVisibilityByXpath(xpath: String, init: WebElement.() ->
 /*
 * Web driver wait element is invisible
 * */
-fun WebDriverWait.elementInvisibility(by: By): Boolean {
-    return until(ExpectedConditions.invisibilityOfElementLocated(by))
-}
+fun WebDriverWait.elementInvisibility(by: By) = until(ExpectedConditions.invisibilityOfElementLocated(by))
 
 /*
 * Web driver wait element by id is invisible
 * */
-fun WebDriverWait.elementInvisibilityById(id: String): Boolean {
-    return until(ExpectedConditions.invisibilityOfElementLocated(By.id(id)))
-}
+fun WebDriverWait.elementInvisibilityById(id: String) = until(ExpectedConditions.invisibilityOfElementLocated(By.id(id)))
 
 /*
 * Web driver wait element by class is invisible
 * */
-fun WebDriverWait.elementInvisibilityByClass(className: String): Boolean {
-    return until(ExpectedConditions.invisibilityOfElementLocated(By.className(className)))
-}
+fun WebDriverWait.elementInvisibilityByClass(className: String) = until(ExpectedConditions.invisibilityOfElementLocated(By.className(className)))
 
 /*
 * Web driver wait element by name is invisible
 * */
-fun WebDriverWait.elementInvisibilityByName(name: String): Boolean {
-    return until(ExpectedConditions.invisibilityOfElementLocated(By.name(name)))
-}
+fun WebDriverWait.elementInvisibilityByName(name: String) = until(ExpectedConditions.invisibilityOfElementLocated(By.name(name)))
 
 /*
 * Web driver wait element by class is invisible
 * */
-fun WebDriverWait.elementInvisibilityBySelector(selector: String): Boolean {
-    return until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(selector)))
-}
+fun WebDriverWait.elementInvisibilityBySelector(selector: String) = until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(selector)))
 
 /*
 * Web driver wait element by class is invisible
 * */
-fun WebDriverWait.elementInvisibilityByXpath(xpath: String): Boolean {
-    return until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xpath)))
-}
+fun WebDriverWait.elementInvisibilityByXpath(xpath: String) = until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xpath)))

@@ -43,25 +43,7 @@ driver(ChromeDriver()) {
     }
 }
 ```
-Nested methods will not invoked if element not found
-```kotlin
-chromeDriver {
-    get("http://cool-website.com")
 
-    elementByClassOrNull("possible-button") {
-        click()
-        
-        wait(10) {
-            elementVisibilityByClass("dynamic-popup") {
-                sendKeys("Kotlin is awesome")
-                submit()
-            }
-            
-            elementInvisibilityByClass("dynamic-popup") 
-        }
-    }
-}
-```
 ## Total function list
 
 #### Driver builders
@@ -89,20 +71,6 @@ chromeDriver {
 `elementBySelector(selector: String) {}`
 
 `elementByXpath(selector: String) {}`
-
-#### `WebDriver` and `WebElement` element or `null` builders
-
-`elementOrNull(by: By) {}`
-
-`elementByIdOrNull(id: String) {}`
-
-`elementByClassOrNull(className: String) {}`
-
-`elementByNameOrNull(name: String) {}`
-
-`elementBySelectorOrNull(selector: String) {}`
-
-`elementByXpathOrNull(selector: String) {}`
 
 #### `WebDriver` and `WebElement` element list builders
 
