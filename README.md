@@ -21,10 +21,10 @@ DSL for Selenium 2.0. Provide a possibility to write tests in [Kotlin type-safe 
 ## Gradle
 ```
 allprojects {
-	repositories {
-		...
-		maven { url 'https://jitpack.io' }
-	}
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
 }
 ```
 ```
