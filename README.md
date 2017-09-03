@@ -14,8 +14,23 @@ DSL for Selenium 2.0. Provide a possibility to write tests in [Kotlin type-safe 
 <dependency>
     <groupId>com.github.qwertukg</groupId>
     <artifactId>SeleniumBuilder</artifactId>
-    <version>-6f4c7be08b-1</version>
+    <version>b08536ffff</version>
 </dependency>
+```
+
+## Gradle
+```
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
+```
+dependencies {
+    compile 'com.github.qwertukg:SeleniumBuilder:b08536ffff'
+}
 ```
 
 ## Sample
