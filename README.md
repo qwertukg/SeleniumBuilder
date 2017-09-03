@@ -53,7 +53,9 @@ driver(ChromeDriver()) {
     
     wait(10) {
         elementVisibilityById("result-item") {
-            item.salary = elementByClass("salary").text
+            elementByClass("salary") {
+                item.salary = text
+            }
         }
     }
 }
