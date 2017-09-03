@@ -18,7 +18,7 @@ DSL for Selenium 2.0. Provide a possibility to write tests in [Kotlin type-safe 
 </dependency>
 ```
 
-## Samples
+## Sample
 ```kotlin
 driver(ChromeDriver()) { 
     get("http://cool-website.com")
@@ -38,7 +38,7 @@ driver(ChromeDriver()) {
     
     wait(10) {
         elementVisibilityById("result-item") {
-            item.salary = elementByClassOrNull("salary")?.text
+            item.salary = elementByClass("salary").text
         }
     }
 }
