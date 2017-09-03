@@ -30,7 +30,7 @@ inline fun WebDriverWait.elementVisibilityById(id: String, init: WebElement.() -
 /*
 * Web driver wait element by class is visible
 * */
-fun WebDriverWait.elementVisibilityByClass(className: String, init: WebElement.() -> Unit) {
+inline fun WebDriverWait.elementVisibilityByClass(className: String, init: WebElement.() -> Unit) {
     until(ExpectedConditions.visibilityOfElementLocated(By.className(className))).init()
 }
 
