@@ -1,38 +1,6 @@
 # SeleniumBuilder
 DSL for Selenium 2.0. Provide a possibility to write tests in [Kotlin type-safe builders](https://kotlinlang.org/docs/reference/type-safe-builders.html#a-type-safe-builder-example) style
 
-## Maven
-```xml
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
-```
-```xml
-<dependency>
-    <groupId>com.github.qwertukg</groupId>
-    <artifactId>SeleniumBuilder</artifactId>
-    <version>b08536ffff</version>
-</dependency>
-```
-
-## Gradle
-```
-allprojects {
-    repositories {
-        ...
-        maven { url 'https://jitpack.io' }
-    }
-}
-```
-```
-dependencies {
-    compile 'com.github.qwertukg:SeleniumBuilder:b08536ffff'
-}
-```
-
 ## Sample
 ```kotlin
 driver(ChromeDriver()) { 
