@@ -1,7 +1,9 @@
 package kz.qwertukg
 
-import org.openqa.selenium.*
-import org.openqa.selenium.support.ui.*
+import org.openqa.selenium.By
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.support.ui.ExpectedConditions
+import org.openqa.selenium.support.ui.WebDriverWait
 
 /**
 * Selenium Kotlin Builder
@@ -30,8 +32,8 @@ inline fun WebDriverWait.elementVisibilityById(id: String, init: WebElement.() -
 /*
 * Web driver wait element by class is visible
 * */
-inline fun WebDriverWait.elementVisibilityByClass(className: String, init: WebElement.() -> Unit) {
-    until(ExpectedConditions.visibilityOfElementLocated(By.className(className))).init()
+inline fun <T> WebDriverWait.elementVisibilityByClass(className: String, init: WebElement.() -> T) : T{
+    return until(ExpectedConditions.visibilityOfElementLocated(By.className(className))).init()
 }
 
 /*
@@ -39,6 +41,20 @@ inline fun WebDriverWait.elementVisibilityByClass(className: String, init: WebEl
 * */
 inline fun WebDriverWait.elementVisibilityByName(name: String, init: WebElement.() -> Unit) {
     until(ExpectedConditions.visibilityOfElementLocated(By.name(name))).init()
+}
+
+/*
+* Web driver wait element by link is visible
+* */
+inline fun WebDriverWait.elementVisibilityByLink(link: String, init: WebElement.() -> Unit) {
+    until(ExpectedConditions.visibilityOfElementLocated(By.linkText(link))).init()
+}
+
+/*
+* Web driver wait element by tag is visible
+* */
+inline fun <T> WebDriverWait.elementVisibilityByTag(tag: String, init: WebElement.() -> T) : T{
+    return until(ExpectedConditions.visibilityOfElementLocated(By.tagName(tag))).init()
 }
 
 /*

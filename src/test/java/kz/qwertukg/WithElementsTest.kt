@@ -3,7 +3,7 @@ package kz.qwertukg
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class WebDriverKtTest {
+class WithElementsTest {
     @Test
     fun `test chromeDriver, elementById, wait, elementVisibilityById, elementVisibilityBySelector functions on google`() {
         var result = ""
