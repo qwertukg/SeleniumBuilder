@@ -8,7 +8,7 @@ class WebDriverKtTest {
     fun `test chromeDriver, elementById, wait, elementVisibilityById, elementVisibilityBySelector functions on google`() {
         var result = ""
 
-        chromeDriver(settings2) {
+        chromeDriver(settings) {
             get("http://google.com")
 
             elementById("lst-ib") {
