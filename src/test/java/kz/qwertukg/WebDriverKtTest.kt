@@ -1,21 +1,21 @@
 package kz.qwertukg
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-import org.junit.Assert.*
 
 class WebDriverKtTest {
     @Test
     fun `test chromeDriver, elementById, wait, elementVisibilityById, elementVisibilityBySelector functions on google`() {
         var result = ""
 
-        chromeDriver("c:/chromedriver.exe") {
+        chromeDriver(settings) {
             get("http://google.com")
 
             elementById("lst-ib") {
                 sendKeys("kotlin")
 
                 wait(10) {
-                    elementVisibilityById("_fZl") {
+                    elementVisibilityByName("btnK") {
                         click()
                     }
 
@@ -28,5 +28,4 @@ class WebDriverKtTest {
 
         assertEquals("Kotlin Programming Language", result)
     }
-
 }

@@ -5,15 +5,15 @@ import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 
 /**
-* Selenium Kotlin Builder
-* Created by Daniil Rakhmatulin
-* http://daniil.rakhmatulin.kz
-*/
+ * Selenium Kotlin Builder
+ * Created by Daniil Rakhmatulin
+ * http://daniil.rakhmatulin.kz
+ */
 
 /*
 * Web Driver
 * */
-inline fun driver(driver: WebDriver, init: WebDriver.() -> Unit) {
+inline fun <T : WebDriver> driver(driver: T, init: T.() -> Unit) {
     try {
         driver.init()
     } finally {
@@ -24,53 +24,27 @@ inline fun driver(driver: WebDriver, init: WebDriver.() -> Unit) {
 /*
 * Web Driver Chrome
 * */
-inline fun chromeDriver(init: WebDriver.() -> Unit) {
-    val driver = ChromeDriver()
-
-    try {
-        driver.init()
-    } finally {
-        driver.close()
-    }
-}
+fun chromeDriver(init: WebDriver.() -> Unit) = driver(ChromeDriver(), init)
 
 /*
 * Web Driver Chrome with path to driver
 * */
-inline fun chromeDriver(pathToDriver: String, init: WebDriver.() -> Unit) {
-    System.setProperty("webdriver.chrome.driver", pathToDriver)
-    val driver = ChromeDriver()
-
-    try {
-        driver.init()
-    } finally {
-        driver.close()
-    }
+fun chromeDriver(
+    settings: ChromeDriverSettings,
+    init: ChromeDriver.() -> Unit
+) {
+    return driver(ChromeDriver(settings.driverOptions), init)
 }
 
 /*
 * Web Driver FireFox
 * */
-inline fun firefoxDriver(init: WebDriver.() -> Unit) {
-    val driver = FirefoxDriver()
-
-    try {
-        driver.init()
-    } finally {
-        driver.close()
-    }
-}
+inline fun firefoxDriver(init: WebDriver.() -> Unit) = driver(FirefoxDriver(), init)
 
 /*
 * Web Driver FireFox with path to driver
 * */
 inline fun firefoxDriver(pathToDriver: String, init: WebDriver.() -> Unit) {
     System.setProperty("webdriver.firefox.driver", pathToDriver)
-    val driver = FirefoxDriver()
-
-    try {
-        driver.init()
-    } finally {
-        driver.close()
-    }
+    driver(FirefoxDriver(), init)
 }

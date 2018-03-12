@@ -1,19 +1,22 @@
 package kz.qwertukg
 
-import org.openqa.selenium.*
+import org.openqa.selenium.By
+import org.openqa.selenium.SearchContext
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.ui.WebDriverWait
 
 /**
-* Selenium Kotlin Builder
-* Created by Daniil Rakhmatulin
-* http://daniil.rakhmatulin.kz
-*/
+ * Selenium Kotlin Builder
+ * Created by Daniil Rakhmatulin
+ * http://daniil.rakhmatulin.kz
+ */
 
 /*
 * Build WebDriverWait with timeout
 * */
-inline fun WebDriver.wait(timeout: Long, init: WebDriverWait.() -> Unit) {
-    WebDriverWait(this, timeout).init()
+fun WebDriver.wait(timeout: Long, sleepTimeout: Long = 500, init: WebDriverWait.() -> Unit) {
+    WebDriverWait(this, timeout, sleepTimeout).init()
 }
 
 /*
@@ -30,6 +33,7 @@ inline fun SearchContext.element(by: By, init: WebElement.() -> Unit) {
 /*
 * Find element by id
 * */
+
 inline fun SearchContext.elementById(id: String, init: WebElement.() -> Unit) {
     findElement(By.id(id)).init()
 }
@@ -37,8 +41,8 @@ inline fun SearchContext.elementById(id: String, init: WebElement.() -> Unit) {
 /*
 * Find element by class
 * */
-inline fun SearchContext.elementByClass(className: String, init: WebElement.() -> Unit) {
-    findElement(By.className(className)).init()
+inline fun <T> SearchContext.elementByClass(className: String, init: WebElement.() -> T): T {
+    return findElement(By.className(className)).init()
 }
 
 /*
@@ -46,6 +50,13 @@ inline fun SearchContext.elementByClass(className: String, init: WebElement.() -
 * */
 inline fun SearchContext.elementByName(name: String, init: WebElement.() -> Unit) {
     findElement(By.name(name)).init()
+}
+
+/*
+* Find element by tag
+* */
+inline fun <T> SearchContext.elementByTag(tag: String, init: WebElement.() -> T): T {
+    return findElement(By.tagName(tag)).init()
 }
 
 /*
@@ -62,44 +73,9 @@ inline fun SearchContext.elementByXpath(xpath: String, init: WebElement.() -> Un
     findElement(By.xpath(xpath)).init()
 }
 
-/*
-* elements collection functions
-* */
 
-/*
-* Find elementS by
-* */
-inline fun SearchContext.elements(by: By, init: Iterable<WebElement>.() -> Unit) {
-    findElements(by).init()
-}
 
-/*
-* Find elementS by class
-* */
-inline fun SearchContext.elementsByClass(className: String, init: Iterable<WebElement>.() -> Unit) {
-    findElements(By.className(className)).init()
-}
 
-/*
-* Find elementS by name
-* */
-inline fun SearchContext.elementsByName(name: String, init: Iterable<WebElement>.() -> Unit) {
-    findElements(By.name(name)).init()
-}
-
-/*
-* Find elementS by css selector.
-* */
-inline fun SearchContext.elementsBySelector(selector: String, init: Iterable<WebElement>.() -> Unit) {
-    findElements(By.cssSelector(selector)).init()
-}
-
-/*
-* Find elementS by xpath.
-* */
-inline fun SearchContext.elementsByXpath(xpath: String, init: Iterable<WebElement>.() -> Unit) {
-    findElements(By.xpath(xpath)).init()
-}
 
 /*
 * element existing functions.
